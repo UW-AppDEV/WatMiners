@@ -1,0 +1,49 @@
+<div class="table-container" ng-show="!isLoading">
+  <form ng-submit="submit()">
+  <table class="table table.striped">
+    <thead class="tablehead">
+    <tr>
+      <th>JobID</th>
+      <th>Ranking</th>
+      <th>Preference</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="item in rankings">
+      <td>
+        <input type="text" placeholder="Job ID" ng-model="item.jobID" ng-required=""
+               integer>
+      </td>
+      <td>
+        <select ng-model="item.ranking" ng-required="">
+          <option>Ranked</option>
+          <option>Offered</option>
+        </select>
+      </td>
+      <td>
+        <input type="number" placeholder="Your Preference" ng-model="item.preference"
+               integer
+               min="-1"
+               max="9"
+               ng-required="">
+      </td>
+      <td>
+        <button class="btn btn-danger" ng-click="deleteRecord($index)" type="button">DELETE</button>
+      </td>
+    </tr>
+
+  </table>
+  <div class="after-table">
+  <p>Enter your preference as a number between -1 to 9 for each job</p>
+    <p>0 means you are not sure, -1 means you are not taking it</p>
+  <span>{{message}}</span>
+  <button class="btn btn-primary button-block" ng-click="addAnother()" type="button">
+    <span class="glyphicon glyphicon-plus"></span>
+    Add Another</button>
+    <button class="btn btn-positive button-block"
+        type="submit">
+      Submit
+    </button>
+  </div>
+  </form>
+</div>
+    <p style="color:#e5e5e5" ng-show="isLoading">LOADING</p>

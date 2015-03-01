@@ -1,0 +1,21 @@
+<div class="table-container">
+<table class="table table.striped">
+  <thead class="tablehead">
+  <tr>
+    <th>JobID</th>
+    <th>Candidate Name</th>
+    <th>Company Ranking</th>
+    <th>Candidate Preference</th>
+  </tr>
+  </thead>
+  <tr ng-repeat="item in rankings">
+    <td>{{item.jobID}}</td>
+    <td>{{item.displayName}}</td>
+    <td>{{item.ranking}}</td>
+    <td>{{item.preference}}</td>
+  </tr>
+</table>
+<span ng-bind="message"></span>
+  <p>A preference of 0 indicates that the person did not decide</p>
+  <p>A preference of -1 indicates that the person is not taking the job</p>
+</div>
