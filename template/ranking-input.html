@@ -27,7 +27,9 @@
                ng-required="">
       </td>
       <td>
-        <button class="btn btn-danger" ng-click="deleteRecord($index)" type="button">DELETE</button>
+        <button class="btn btn-danger" ng-click="deleteRecord($index)"
+                ng-disabled="rankings.length<2"
+                type="button">DELETE</button>
       </td>
     </tr>
 
@@ -35,7 +37,7 @@
   <div class="after-table">
   <p>Enter your preference as a number between -1 to 9 for each job</p>
     <p>0 means you are not sure, -1 means you are not taking it</p>
-  <span>{{message}}</span>
+
   <button class="btn btn-primary button-block" ng-click="addAnother()" type="button">
     <span class="glyphicon glyphicon-plus"></span>
     Add Another</button>
@@ -45,5 +47,6 @@
     </button>
   </div>
   </form>
+  <span style="color:red">{{message}}</span>
 </div>
     <p style="color:#e5e5e5" ng-show="isLoading">LOADING</p>
